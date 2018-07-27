@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Unique Coin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <style>
+    table { width:1000px; }
+    </style>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="https://svgsilh.com/svg/1197365-9e9e9e.svg" height="32px"></a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">HOME <span class="sr-only">(current)</span></a>
+          </li>
+<!--
+          <li class="nav-item">
+            <a class="nav-link" href="#">COINS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+-->
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="coins.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COINS</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              {% for coin in coins %}
+              <a class="dropdown-item" href="{{ coin.id }}/show">{{ coin.name }}</a>
+              {% endfor %}
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="exchanges.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EXCHANGES</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            {% for exchange in exchanges %}
+              <a class="dropdown-item" href="{{ exchange.id }}/show">{{ exchange.name }}</a>
+              {% endfor %}
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://bit.ly/2v93I01">DOCUMENTATION</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+
+    <br><br>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>{{ coin.name }}</h2>
+
+            <p>Price: {{ coin.price }}</p>
+            <p>Time: {{ coin.time }}</p>
+            <p>Volume: {{ coin.volume }}</p>
+            <p>Buy: {{ coin.buy }}</p>
+            <p>Sell: {{ coin.sell }}</p><br>
+
+          <p>Exchanges that support this coin:</p>
+          {% for coin in exchange %}
+            <p>{{ exchange.name }}</p>
+          {% endfor %}
+          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; ZKTCryptoProjectGroup 2018</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
